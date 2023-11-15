@@ -1,0 +1,51 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="card my-5">
+        <div class="card-body">
+          <a href="#" class="d-flex justify-content-center">
+            <img src="assets/images/logo-dark.svg" class="logo-dark" />
+          </a>
+
+          <div class="auth-header">
+            <h2 class="text-secondary mt-5"><b>Hi, Welcome Back</b></h2>
+            <p class="fs-4 mt-2">Enter your credentials to continue</p>
+          </div>
+          <h5 class="my-4 d-flex justify-content-center"> Sign in with Email address </h5>
+                <div class="alert alert-danger" *ngIf="err==1">
+                  <strong>login ou mot de passe erronés..</strong>
+                </div>
+
+                <form>
+            <div class="form-floating mb-3">
+              <label for="username" class="form-label">Username:</label>
+              <input type="text" id="username" name="username" class="form-control" [(ngModel)]="user.username" />
+            </div>
+            <div class="form-floating mb-3">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control" />
+            </div>
+            <div class="d-flex mt-1 justify-content-between">
+              <div class="form-check">
+                <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
+                <label class="form-check-label text-muted" for="customCheckc1">Remember me</label>
+              </div>
+              <div  class="form-check">
+              <p class="text-secondary">
+                <a [routerLink]="['/forgotpassword']">Forgot Password?</a>
+              </p>
+            </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button type="button" (click)="onLoggedin()" class="btn btn-secondary">Sign In</button>
+            </div>
+          </form>
+          <hr />
+          <h6 class="d-flex justify-content-center">
+            <a [routerLink]="['/addusers']">Don't have an account?</a>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

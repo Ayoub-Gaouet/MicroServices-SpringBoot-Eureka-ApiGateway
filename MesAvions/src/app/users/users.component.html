@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th><th>Nom d'utilisateur</th><th >Role</th>
+
+        </tr>
+        <tbody *ngFor="let user of users">
+        <tr>
+          <td>{{user.user_id}}</td>
+          <td>{{user.username}}</td>
+          <td >
+            <ul>
+              <li *ngFor="let role of user.roles">{{role.role}}</li>
+            </ul>
+          </td>
+          <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/add-role-to-user',user.user_id]">Modifier</a></td>
+          <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerUser(user)">Supprimer</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Pop-up Notification -->
+<div *ngIf="showCustomNotification" class="custom-notification">
+  <div class="notification-content">
+    <p>{{customNotificationMessage}}</p>
+  </div>
+</div>

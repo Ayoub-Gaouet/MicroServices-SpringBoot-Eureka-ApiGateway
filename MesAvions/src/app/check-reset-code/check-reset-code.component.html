@@ -1,0 +1,11 @@
+<div class="check-reset-code-container">
+  <h2>Check Reset Code</h2>
+  <p>Enter your email and verification code to check the password reset.</p>
+  <form (ngSubmit)="checkResetCode()" class="check-reset-code-form">
+    <div class="form-group">
+      <label for="verificationCode">Verification Code:</label>
+      <input type="text" id="verificationCode" name="verificationCode" [(ngModel)]="verificationCode" required>
+    </div>
+    <button type="submit" class="btn-submit">Check Reset Code</button>
+  </form>
+</div>

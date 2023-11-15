@@ -1,0 +1,35 @@
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+  <label>Company </label>
+  <select class="form-control form-control-lg" id="idCom" name="idCom" [(ngModel)]="IdCompany" (change)="onChange()">
+    <option *ngFor="let com of company" value="{{com.idCom}}">
+      {{com.nomCom}}
+    </option>
+  </select>
+</div>
+
+
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Date Création</th>
+                    <th>Company</th>
+                </tr>
+                <tbody *ngFor="let avion of avions">
+                    <tr>
+                        <td>{{avion.idAvions}}</td>
+                        <td>{{avion.nomAvions}}</td>
+                        <td>{{avion.prixAvions}}</td>
+                        <td>{{avion.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{avion.company.nomCom}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

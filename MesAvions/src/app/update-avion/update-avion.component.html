@@ -1,0 +1,44 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Avion :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Avion</label>
+            <input readonly type="text" [(ngModel)]="currentAvion.idAvions" name="idAvions" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Avion</label>
+            <input type="text" [(ngModel)]="currentAvion.nomAvions" name="nomAvions" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Avion</label>
+            <input type="number" [(ngModel)]="currentAvion.prixAvions" name="prixAvions" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4"><label>Date création</label>
+
+            <input type="date" [ngModel]="currentAvion.dateCreation | date: 'yyyy-MM-dd'" (ngModelChange)=" currentAvion.dateCreation= $event" name="dateCreation" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <select class="form-control form-control-lg" id="idCom" name="idCom" [(ngModel)]="updatedComId">
+            <option *ngFor="let com of company" [value]="com.idCom" >
+            {{com.nomCom}}
+            </option>
+            </select>
+        </div>
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <label class="mb-2">Image :</label>
+        <input type="file" (change)="onImageUpload($event)" class="form-control">
+      </div>
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <img [src]="myImage" class="card-img-top img-fluid rounded-start"
+             style="width: 500px; height: 300px" />
+      </div>
+        <div class="mt-2">
+
+            <button type="submit" (click)="updateAvion()" class="btn btn-success">Modifer</button>
+
+        </div>
+    </form>
+
+</div>
